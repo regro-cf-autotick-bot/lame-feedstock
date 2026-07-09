@@ -1,4 +1,4 @@
-{% set version = "3.100" %}
+{% set version = "3.101" %}
 
 package:
   name: lame
@@ -6,13 +6,13 @@ package:
 
 source:
   url: https://downloads.sourceforge.net/sourceforge/lame/lame-{{ version }}.tar.gz
-  sha256: ddfe36cab873794038ae2c1210557ad34857a4b6bdc515785d1da9e175b1da1e
+  sha256: 7578af6eebd578b2bd64e468fac4ae1f03670a7e028166e67f855674b9b6aeac
   patches:
     - libmp3lame.patch
     - fixup_windows_build.patch
 
 build:
-  number: 1003
+  number: 0
   run_exports:
     # seems to be minor version compatibility
     # https://abi-laboratory.pro/tracker/timeline/lame/
@@ -22,6 +22,7 @@ requirements:
   build:
     - gnuconfig  # [unix]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - make  # [unix]
     - nasm  # [win]
 
