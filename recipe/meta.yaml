@@ -2,13 +2,12 @@
 
 package:
   name: lame
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   url: https://downloads.sourceforge.net/sourceforge/lame/lame-{{ version }}.tar.gz
   sha256: 7578af6eebd578b2bd64e468fac4ae1f03670a7e028166e67f855674b9b6aeac
   patches:
-    - libmp3lame.patch
     - fixup_windows_build.patch
 
 build:
