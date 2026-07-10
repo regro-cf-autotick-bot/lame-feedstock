@@ -28,7 +28,7 @@ requirements:
   host:
     # lame 3.101 dropped the bundled mpglib decoder and now decodes via
     # libmpg123 (see configure.ac / Makefile.MSVC).
-    - mpg123  # [unix]
+    - mpg123
 
 test:
   commands:
