@@ -1,6 +1,13 @@
 #!/bin/bash
 # Get an updated config.sub and config.guess
-cp $BUILD_PREFIX/share/gnuconfig/config.* .
+# lame ships these as read-only, so force the overwrite.
+cp -f $BUILD_PREFIX/share/gnuconfig/config.* .
+
+# lame 3.101's frontend/parse.c calls the id3tag_set_*_ucs2 helpers whose
+# prototypes are hidden by DEPRECATED_OR_OBSOLETE_CODE_REMOVED in lame.h.
+# The symbols are exported by libmp3lame, so only the compile-time implicit
+# declaration is a problem; modern clang promotes it to an error by default.
+export CFLAGS="${CFLAGS} -Wno-implicit-function-declaration"
 
 ./configure --prefix=$PREFIX \
 	    --disable-dependency-tracking \

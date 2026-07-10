@@ -24,6 +24,11 @@ requirements:
     - {{ stdlib("c") }}
     - make  # [unix]
     - nasm  # [win]
+    - pkg-config  # [unix]
+  host:
+    # lame 3.101 dropped the bundled mpglib decoder and now decodes via
+    # libmpg123 (see configure.ac / Makefile.MSVC).
+    - mpg123  # [unix]
 
 test:
   commands:
