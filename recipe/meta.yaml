@@ -1,4 +1,4 @@
-{% set version = "3.101" %}
+{% set version = "4.0" %}
 
 package:
   name: lame
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://downloads.sourceforge.net/sourceforge/lame/lame-{{ version }}.tar.gz
-  sha256: 7578af6eebd578b2bd64e468fac4ae1f03670a7e028166e67f855674b9b6aeac
+  sha256: 3df5124d5ad3a98312ffd7ba6a9b36230e4f8a3e66d3ce0f425e336c32d216eb
   patches:
     - fixup_windows_build.patch
     # Make the id3tag ucs2 helper prototypes visible to the frontend and give
