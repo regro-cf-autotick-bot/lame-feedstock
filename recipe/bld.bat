@@ -1,6 +1,9 @@
 @echo ON
 
-nmake -f Makefile.MSVC MSVCVER=Win64 comp=msvc asm=yes libmp3lame.dll lame.exe
+set "NMAKE_MACHINE="
+if "%target_platform%"=="win-arm64" set "NMAKE_MACHINE=MACHINE=/machine:ARM64"
+
+nmake -f Makefile.MSVC MSVCVER=Win64 comp=msvc asm=yes %NMAKE_MACHINE% libmp3lame.dll lame.exe
 if errorlevel 1 exit 1
 
 dir
@@ -24,5 +27,7 @@ if errorlevel 1 exit 1
 copy /Y output\lame.exe %LIBRARY_PREFIX%\bin\lame.exe
 if errorlevel 1 exit 1
 
-%LIBRARY_PREFIX%\bin\lame.exe testcase.mp3
-if errorlevel 1 exit 1
+if not "%CONDA_BUILD_CROSS_COMPILATION%"=="1" (
+    %LIBRARY_PREFIX%\bin\lame.exe testcase.mp3
+    if errorlevel 1 exit 1
+)
