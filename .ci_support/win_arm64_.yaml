@@ -7,6 +7,6 @@ channel_sources:
 channel_targets:
 - conda-forge main
 mpg123:
-- '1.32'
+- '1.33'
 target_platform:
 - win-arm64
