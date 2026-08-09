@@ -14,12 +14,13 @@ source:
     # GCC 14 (which promotes these legacy-C warnings to errors).
     - fix_id3tag_ucs2_decls.patch
     - fix_id3tag_utf8_casts.patch
+    - fix_id3v2tag_utf8_frontend.patch
     # parse.c uses setlocale(LC_CTYPE, ...) under HAVE_LANGINFO_H but only
     # includes <locale.h> under HAVE_ICONV; include it independently.
     - fix_missing_locale_include.patch
 
 build:
-  number: 0
+  number: 1
   run_exports:
     # seems to be minor version compatibility
     # https://abi-laboratory.pro/tracker/timeline/lame/
