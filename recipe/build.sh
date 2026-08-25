@@ -1,5 +1,7 @@
 #!/bin/bash
 # Get an updated config.sub and config.guess
+cp $BUILD_PREFIX/share/gnuconfig/config.* .
+# Get an updated config.sub and config.guess
 # lame ships these as read-only, so force the overwrite.
 cp -f $BUILD_PREFIX/share/gnuconfig/config.* .
 
